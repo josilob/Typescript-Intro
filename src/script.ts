@@ -30,7 +30,7 @@ const getFullName=(name:string,lastName:string):string=>{
   return name + ' ' + lastName
 }
 // console.log(getFullName(true,['foo'])) // Throws an error because types are not matching
-console.log(getFullName('Bojan','Josilo'))
+// console.log(getFullName('Bojan','Josilo'))
 
 // #################
 // #####OBJECTS#####
@@ -38,14 +38,26 @@ console.log(getFullName('Bojan','Josilo'))
 // Here is important to understand application of INTERFACES
 // This is what makes TS a bit harder. We must have enough interfaces to cover all combinations but not too many at the same time since this will make project hard to support
 
-interface User {name:string, age?:number}
+// Create an interface that can be shared across different users as a data type
+interface UserInterface {
+  name:string;
+  age?:number;
+  getMessage():string
+}
 
-const user:{name:string,age:number} = {
+const user:UserInterface = {
   name:'Monster',
-  age:30
+  age:30,
+  getMessage(){return 'Hello' + name}
 }
-// it can be written using either interface or object's types explicitly. Works either way but interface helps with complexity and readability
+
+// it can be written using either interface or object's types explicitly.
+// Works either way but interface helps with complexity and readability
 // To make object field optional we add question mark '?' before key-type
-const user2:User = {
+
+const user2:{name:string, age?:number, getMessage():string} = {
   name:'Jack',
+  getMessage(){return 'Hello '+name}
 }
+
+console.log(user.getMessage())

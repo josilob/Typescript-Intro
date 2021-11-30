@@ -23,14 +23,16 @@ world = 'hello'; // no errors because let is re-assignable
 var getFullName = function (name, lastName) {
     return name + ' ' + lastName;
 };
-// console.log(getFullName(true,['foo'])) // Throws an error because types are not matching
-console.log(getFullName('Bojan', 'Josilo'));
 var user = {
     name: 'Monster',
-    age: 30
+    age: 30,
+    getMessage: function () { return 'Hello' + name; }
 };
-// it can be written using either interface or object's types explicitly. Works either way but interface helps with complexity and readability
+// it can be written using either interface or object's types explicitly.
+// Works either way but interface helps with complexity and readability
 // To make object field optional we add question mark '?' before key-type
 var user2 = {
-    name: 'Jack'
+    name: 'Jack',
+    getMessage: function () { return 'Hello ' + name; }
 };
+console.log(user.getMessage());

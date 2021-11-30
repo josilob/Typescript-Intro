@@ -60,4 +60,23 @@ const user2:{name:string, age?:number, getMessage():string} = {
   getMessage(){return 'Hello '+name}
 }
 
-console.log(user.getMessage())
+// UNION OPERATORS
+let username:string='Bojan' // explicitly string type
+let pageName:string|number = '1' // optional string or number type
+// single pipe "|" is called union operator and it is used to combine data types
+
+// Most popular usage is checking for null - working with data that is null initially which we later on fetch and get the data type we will be working with
+
+let errorMessage:string|null=null;
+// if we just declare data type without assigning it, by default it will be 'undefined'
+// as in: let errorMessage:string|null (without asignment operator "=")
+
+interface IUser {
+  name:string,
+  lastName:string
+}
+
+let anotherUser : IUser | null = null // Union operators support interfaces
+
+let someProp: string|number|null|undefined|string[]|object // not suggested way to write unions
+

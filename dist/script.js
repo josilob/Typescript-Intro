@@ -35,4 +35,11 @@ var user2 = {
     name: 'Jack',
     getMessage: function () { return 'Hello ' + name; }
 };
-console.log(user.getMessage());
+// UNION OPERATORS
+var username = 'Bojan'; // explicitly string type
+var pageName = '1'; // optional string or number type
+// single pipe "|" is called union operator and it is used to combine data types
+// Most popular usage is checking for null - working with data that is null initially which we later on fetch and get the data type we will be working with
+var errorMessage = null;
+var anotherUser = null; // Union operators support interfaces
+var someProp; // not suggested way to write unions

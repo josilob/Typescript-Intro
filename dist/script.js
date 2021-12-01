@@ -43,3 +43,40 @@ var pageName = '1'; // optional string or number type
 var errorMessage = null;
 var anotherUser = null; // Union operators support interfaces
 var someProp; // not suggested way to write unions
+var popularTags = ['tea', 'coffee']; // acceptable but...
+var popularTags2 = ['tea', 'coffee']; // more understandable way of writing
+var drinksTag = null; // if we add empty array [], it will throw an error
+// ANY, NEVER, VOID, UNKNOWN
+// void function => has NO RETURN in it's block
+var doSomething = function () {
+    console.log("do something");
+};
+var doSomethingTS = function () {
+    console.log('void function');
+};
+// type of: ANY as the most general type, meaning it accepts any type
+// not recommended way of dealing with types
+var foo = 'foo';
+foo = 5;
+foo = undefined;
+foo = null;
+// type of: NEVER
+var anotherFn = function () {
+    throw 'never happens'; // rare application
+};
+var varAny = 10;
+var varUnknown = 10;
+var s1 = varAny;
+// let s2: string = varUnknown // type unknown is not assignable to type string
+// it cant be assigned directly in other type
+console.log(varAny.foo());
+// console.log(varUnknown.foo()) // property foo does not exist on type 'unknown'
+// TYPE ASSERTION with 'as' OPERATOR
+var s2 = varUnknown; // workaround error from the line 136
+// unknown type gets converted to a string type and then it is assigned string type inside of the new string variable
+// it can be also done with any types
+var pageNum = '1';
+// let numericPageNum:number = pageNum as number
+// above line gives us error saying conversion of type string to type number can not be done
+// in order to do it, it must be converted to the 'unknown' first, so it would look like:
+var numericPageNum = pageNum;

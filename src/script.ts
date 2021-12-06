@@ -183,13 +183,30 @@ let pageNumber = page as string
 // Private, public and protected EXIST ONLY in TS - they DO NOT EXIST in JS
 // this safe typing is only happening during development in TS
 
-class User {
+// INTERFACES
+
+interface UserInterface2{
+  getFullName():string
+}
+
+class User implements UserInterface2 {
+  // implementing interface we must have getFullName() in this class
+
   private firstName:string
   public lastName:string
+  readonly unchancheableName:string
+  static readonly maxAge = 50
+  // STATIC - usable only on class itself, not on instances (objects)
+  // meaning our users wont have property maxAge
 
   constructor(firstName:string, lastName:string){
     this.firstName = firstName
     this.lastName = lastName
+    this.unchancheableName = firstName
+  }
+
+  changeUnchangeableName():void{
+    // this.unchancheableName = 'foo'; // ERROR => READ ONLY => Can not be changed (as in constant)
   }
 
   getFullName():string{
@@ -199,3 +216,6 @@ class User {
 const theUser = new User('Mickey','Mouse') // user of type User
 // console.log(theUser.firstName) // if we keep firstName as private it will ERROR
 console.log(theUser.getFullName()) // it works, because firstName is accessed internally
+
+
+//  INHERITANCE

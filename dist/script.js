@@ -85,14 +85,32 @@ var page = '1';
 var pageNumber = page;
 // element is the highest class in hierarchy of DOM
 // Most common and INCORRECT way to fix errors
-var someElement = document.querySelector('.fooClass');
-console.log('someElement', someElement.value);
-// Correct:
-var anotherElement = document.querySelector('.fooClass'); // Correct way
-console.log('anotherElement', anotherElement.value);
+// const someElement = document.querySelector('.fooClass')
+// console.log('someElement',(someElement as any).value)
+// // Correct:
+// const anotherElement = document.querySelector('.fooClass') as HTMLInputElement // Correct way
+// console.log('anotherElement',anotherElement.value)
 // adding a listener
 // Since TS does not have any insight in our Markup(HTML),
-anotherElement.addEventListener('click', function (e) {
-    var target = e.target;
-    console.log('event: ', target.value); // no error now
-});
+// anotherElement.addEventListener('click',(e)=>{
+//   const target = e.target as HTMLInputElement;
+//   console.log('event: ',target.value) // no error now
+// })
+// CLASSES in TS
+// PRIVATE, PUBLIC and PROTECTED (three words we can make all properties and functions public or hidden)
+// PROTECTED values are allowed in class itself and its children (private + inheritence)
+// Private, public and protected EXIST ONLY in TS - they DO NOT EXIST in JS
+// this safe typing is only happening during development in TS
+var User = /** @class */ (function () {
+    function User(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    User.prototype.getFullName = function () {
+        return this.firstName + ' ' + this.lastName;
+    };
+    return User;
+}());
+var theUser = new User('Mickey', 'Mouse'); // user of type User
+// console.log(theUser.firstName) // if we keep firstName as private it will ERROR
+console.log(theUser.getFullName()); // it works, because firstName is accessed internally

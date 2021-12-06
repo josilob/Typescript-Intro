@@ -1,15 +1,19 @@
 // TS is transpiled to ES3 by default - Working in every browser
 // Types do not have to be passes explicitly, TS will understand expected output but not providing types beats the purpose
 
+// CONFIGURATION
+// type in terminal: tsc --init // => creates tsconfig.json file
+// here we define output file/folder structure, compilation version etc...
+
+// tsc -w // make watcher look for file change and transpile to native JS code
+// it looks for destination in tsconfig.json
+// if not found we must type relative path: tsc ./src/script.ts in terminal
+
 // #################
 // ### VARIABLES ###
 // #################
 const a = '1';
 console.log('aaa',a) // Property foo does not exist on type 1
-
-// tsc -w // make watcher look for file change and transpile to native JS code
-// it looks for destination in tsconfig.json, if not found we must type relative path
-// tsc ./src/script.ts in terminal
 
 const hello:string = 'world'
 // hello = 'hello' // error: cannot assign to 'hello' because it is constant
@@ -219,3 +223,19 @@ console.log(theUser.getFullName()) // it works, because firstName is accessed in
 
 
 //  INHERITANCE
+
+class Admin extends User{
+  private editor:string
+
+  setEditor(editor:string):void{
+    this.editor=editor
+  }
+
+  getEditor():string{
+    return this.editor
+  }
+}
+
+const admin = new Admin('Tom','Cat') // Works just like User, since it inherits it's props/functions
+console.log(admin.getFullName()) // => 'Tom Cat'
+console.log(admin.getEditor()) // => Only Admin objects have access to this

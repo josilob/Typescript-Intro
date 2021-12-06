@@ -69,7 +69,7 @@ var varUnknown = 10;
 var s1 = varAny;
 // let s2: string = varUnknown // type unknown is not assignable to type string
 // it cant be assigned directly in other type
-console.log(varAny.foo());
+// console.log(varAny.foo())
 // console.log(varUnknown.foo()) // property foo does not exist on type 'unknown'
 // TYPE ASSERTION with 'as' OPERATOR
 var s2 = varUnknown; // workaround error from the line 136
@@ -80,3 +80,19 @@ var pageNum = '1';
 // above line gives us error saying conversion of type string to type number can not be done
 // in order to do it, it must be converted to the 'unknown' first, so it would look like:
 var numericPageNum = pageNum;
+// TYPESCRIPT and DOM
+var page = '1';
+var pageNumber = page;
+// element is the highest class in hierarchy of DOM
+// Most common and INCORRECT way to fix errors
+var someElement = document.querySelector('.fooClass');
+console.log('someElement', someElement.value);
+// Correct:
+var anotherElement = document.querySelector('.fooClass'); // Correct way
+console.log('anotherElement', anotherElement.value);
+// adding a listener
+// Since TS does not have any insight in our Markup(HTML),
+anotherElement.addEventListener('click', function (e) {
+    var target = e.target;
+    console.log('event: ', target.value); // no error now
+});

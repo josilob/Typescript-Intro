@@ -15,19 +15,52 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+// CONFIGURATION
+// type in terminal: tsc --init // => creates tsconfig.json file
+// here we define output file/folder structure, compilation version etc...
+// tsc -w // make watcher look for file change and transpile to native JS code
+// it looks for destination in tsconfig.json
+// if not found we must type relative path: tsc ./src/script.ts in terminal
 // #################
 // ### VARIABLES ###
 // #################
+// Number
+var first = 123; // number
+var second = 0x37CF; // hexadecimal
+var third = 255; // octal
+var fourth = 57; // binary
+// String
 var a = '1';
-console.log('aaa', a); // Property foo does not exist on type 1
-// tsc -w // make watcher look for file change and transpile to native JS code
-// it looks for destination in tsconfig.json, if not found we must type relative path
-// tsc ./src/script.ts in terminal
+console.log('aaa', a);
 var hello = 'world';
-// hello = 'hello' // error: cannot assign to 'hello' because it is constant
-var world = 'world';
-world = 'hello'; // no errors because let is re-assignable
-// world = [] // type 'undendified[]' is not assignable to type 'string'
+// #################
+// ##### TUPLES ####
+// #################
+// This is data type containing two values of different data types
+var empId = 1;
+var empName = 'Steve';
+// or Tuple type variable
+var employee = [1, 'Steve'];
+// It can also include multiple data types:
+var employee2 = [1, 'Steve'];
+var person = [1, 'Steve', true];
+var userOne = [1, 'Steve', true, 20, 'Admin'];
+// Tuple array
+var employee3 = [[1, 'Steve'], [2, 'Bill']];
+// Tuple elements are accessed using index, the same way as an array. An index starts from zero.
+employee[0]; // returns 1
+employee[1]; // returns 'Steve'
+// Add elements into Tuple (using push() method):
+employee.push(2, 'Bill'); // => [1,'Steve', 2, 'Bill']
+// The tuple is like an array. So, array methods such as pop(), concat() etc. can be used
+// #################
+// #### ARRAYS ####
+// #################
+// There are two ways to declare an array:
+// 1. Using square brackets. This method is similar to how you would declare arrays in JavaScript.
+var fruits = ['Apple', 'Orange', 'Banana'];
+// 2. Using a generic array type, Array<elementType>.
+var fruits2 = ['Apple', 'Orange', 'Banana'];
 // #################
 // ### FUNCTIONS ###
 // #################

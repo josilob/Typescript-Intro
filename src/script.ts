@@ -12,15 +12,61 @@
 // #################
 // ### VARIABLES ###
 // #################
+
+// Number
+let first:number = 123; // number
+let second: number = 0x37CF;  // hexadecimal
+let third:number=0o377 ;      // octal
+let fourth: number = 0b111001;// binary
+
+// String
 const a = '1';
-console.log('aaa',a) // Property foo does not exist on type 1
-
+console.log('aaa',a)
 const hello:string = 'world'
-// hello = 'hello' // error: cannot assign to 'hello' because it is constant
 
-let world:string = 'world'
-world = 'hello' // no errors because let is re-assignable
-// world = [] // type 'undendified[]' is not assignable to type 'string'
+
+
+// #################
+// ##### TUPLES ####
+// #################
+
+// This is data type containing two values of different data types
+
+let empId:number = 1
+let empName:string = 'Steve'
+// or Tuple type variable
+let employee:[number,string]=[1,'Steve']
+
+// It can also include multiple data types:
+let employee2:[number,string]=[1,'Steve']
+let person:[number,string,boolean]=[1,'Steve',true]
+let userOne:[number,string,boolean,number,string] = [1,'Steve',true,20,'Admin']
+
+// Tuple array
+let employee3:[number,string][]=[[1,'Steve'],[2,'Bill']]
+
+// Tuple elements are accessed using index, the same way as an array. An index starts from zero.
+employee[0]; // returns 1
+employee[1]; // returns 'Steve'
+
+// Add elements into Tuple (using push() method):
+employee.push(2,'Bill') // => [1,'Steve', 2, 'Bill']
+
+// The tuple is like an array. So, array methods such as pop(), concat() etc. can be used
+
+
+
+
+// #################
+// #### ARRAYS ####
+// #################
+
+// There are two ways to declare an array:
+// 1. Using square brackets. This method is similar to how you would declare arrays in JavaScript.
+let fruits: string[] = ['Apple', 'Orange', 'Banana'];
+// 2. Using a generic array type, Array<elementType>.
+let fruits2: Array<string> = ['Apple', 'Orange', 'Banana'];
+
 
 // #################
 // ### FUNCTIONS ###

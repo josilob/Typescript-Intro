@@ -64,7 +64,8 @@ var fruits2 = ['Apple', 'Orange', 'Banana'];
 // Arrays in TypeScript can contain elements of different data types using a generic array type syntax:
 var values = ['Apple', 2, 'Orange', 3, 4, 'Banana'];
 var values2 = ['Apple', 2, 'Orange', 3, 4, 'Banana'];
-// Afterwards, accessing items and working with the arrays is the same as in JS
+// Afterwards, accessing and working with the array items is the same as in JS
+// Same methods, accessors and loops are used
 var fruits3 = ['Apple', 'Orange', 'Banana'];
 fruits[0]; // returns Apple
 fruits[1]; // returns Orange

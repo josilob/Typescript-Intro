@@ -56,11 +56,23 @@ employee.push(2, 'Bill'); // => [1,'Steve', 2, 'Bill']
 // #################
 // #### ARRAYS ####
 // #################
-// There are two ways to declare an array:
+// There are two ways to declare an array and both produce the same output:
 // 1. Using square brackets. This method is similar to how you would declare arrays in JavaScript.
 var fruits = ['Apple', 'Orange', 'Banana'];
 // 2. Using a generic array type, Array<elementType>.
 var fruits2 = ['Apple', 'Orange', 'Banana'];
+// Arrays in TypeScript can contain elements of different data types using a generic array type syntax:
+var values = ['Apple', 2, 'Orange', 3, 4, 'Banana'];
+var values2 = ['Apple', 2, 'Orange', 3, 4, 'Banana'];
+// Afterwards, accessing items and working with the arrays is the same as in JS
+var fruits3 = ['Apple', 'Orange', 'Banana'];
+fruits[0]; // returns Apple
+fruits[1]; // returns Orange
+fruits[2]; // returns Banana
+fruits[3]; // returns undefined
+for (var index in fruits) {
+    console.log(fruits[index]); // output: Apple Orange Banana
+}
 // #################
 // ### FUNCTIONS ###
 // #################

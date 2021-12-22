@@ -55,17 +55,33 @@ employee.push(2,'Bill') // => [1,'Steve', 2, 'Bill']
 // The tuple is like an array. So, array methods such as pop(), concat() etc. can be used
 
 
-
-
 // #################
 // #### ARRAYS ####
 // #################
 
-// There are two ways to declare an array:
+// There are two ways to declare an array and both produce the same output:
 // 1. Using square brackets. This method is similar to how you would declare arrays in JavaScript.
 let fruits: string[] = ['Apple', 'Orange', 'Banana'];
 // 2. Using a generic array type, Array<elementType>.
 let fruits2: Array<string> = ['Apple', 'Orange', 'Banana'];
+
+// Arrays in TypeScript can contain elements of different data types using a generic array type syntax:
+
+let values:(string|number)[]=['Apple',2,'Orange',3,4,'Banana']
+let values2:Array<string|number>=['Apple',2,'Orange',3,4,'Banana']
+
+// Afterwards, accessing and working with the array items is the same as in JS
+// Same methods, accessors and loops are used
+
+let fruits3: string[] = ['Apple', 'Orange', 'Banana'];
+fruits[0]; // returns Apple
+fruits[1]; // returns Orange
+fruits[2]; // returns Banana
+fruits[3]; // returns undefined
+
+for(const index in fruits){
+    console.log(fruits[index]);  // output: Apple Orange Banana
+}
 
 
 // #################
